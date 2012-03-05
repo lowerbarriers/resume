@@ -1,0 +1,49 @@
+/* hResume-based stylesheet == Created by Brad Czerniak. Released into the public domain on 1/10/2008 */
+
+body{background-color:#bbb;font-family:Calibri,Candara,Segoe,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12pt;line-height:1.286;}
+a,a:link{color:#004276;text-decoration:none;}
+	a:visited{border-left:1px solid #ccc;color:#004276;}
+	a:hover,a:focus{border-bottom:2px solid #ccc;color:#f78418;}
+	a:active{color:#f78418;}
+header{font-size:7.5pt;font-style:normal;letter-spacing:1pt;margin:0 0 9px 0;text-transform:uppercase;}
+h1{font-size:22pt;font-weight:normal;letter-spacing:4pt;margin:0;text-transform:uppercase;}
+	h1 a{border-bottom:0;color:#f78418;}
+		h1 a:visited{border-bottom:0;color:#f78418;}
+		h1 a:hover{border-bottom:0;color:#004276;}
+h2{border-bottom:1px solid #999;font-size:10pt;font-weight:normal;margin-bottom:7px;text-transform:lowercase;}
+h3{font-size:13pt;margin:0 0 2px 0;}
+h4{margin:0;}
+ul{margin:1px 0 3px 0;}
+
+#content{background:#fcfcfc;border:1px solid #444;box-shadow:5px 5px 15px #888;margin:12px auto;padding:.4in .7in;width:7.1in;}
+	#qualifications{margin-left:30px;}
+		.quals{margin-left:40px;}
+			.quals a{color:#000;}
+
+.coursework{border-left:2px solid #444;margin-left:27px;padding-left:10px;}
+.datum{color:#bbb;float:right;}
+.email{font-weight:bold;text-transform:none;}
+	.email:before{color:#000;content:"| ";font-weight:normal;}
+.tel:after{content:" |";}
+.title{color:#f78418;font-style:italic;font-weight:normal;}
+.vcalendar{margin-left:30px;}
+
+@media screen and (max-width:640px){
+	body{background-color:#fff;}
+	a,a:link{display:inline-block;padding:.1em .2em .1em 0;text-decoration:underline;}
+		a:visited{border-left:0 none;color:purple;}
+		a:hover,a:focus{border-bottom:0 none;color:#f78418;}
+		a:active{color:#f78418;}
+	h1{font-size:18pt;margin-top:.5em;}
+	ul{padding-left:1em;}
+	header .adr{display:block;}
+	header .profile{display:none;}
+	#content{background:#fff;border:0 none;box-shadow:0 0 0 #fff;margin:0;padding:0 5px;width:inherit;}
+	#qualifications,.vcalendar{margin-left:0;}
+	.coursework{border-left:0 none;margin-left:1em;padding-left:0;}
+	.datum{float:none;}
+	.education,.experience{margin-top:1em;}
+	.quals{margin-left:1em;}
+	.email:before,.tel:after{content:"";}
+	.tel{clear:both;display:block;margin-bottom:1em;}
+	}
