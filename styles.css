@@ -1,49 +1,52 @@
 /* hResume-based stylesheet == Created by Brad Czerniak. Released into the public domain on 1/10/2008 */
-
-body{background-color:#bbb;font-family:Calibri,Candara,Segoe,"Segoe UI",Helvetica,Arial,sans-serif;font-size:12pt;line-height:1.286;}
-a,a:link{color:#004276;text-decoration:none;}
-	a:visited{border-left:1px solid #ccc;color:#004276;}
-	a:hover,a:focus{border-bottom:2px solid #ccc;color:#f78418;}
+body{background-color:#fff;font-family:Calibri,sans-serif;line-height:1.45;}
+a,a:link{color:#004276;display:inline-block;padding:.1em .2em .1em 0;}
+	a:visited{color:#6b1aa6;}
+	a:hover,a:focus{color:#f78418;text-decoration:underline;}
 	a:active{color:#f78418;}
-header{font-size:7.5pt;font-style:normal;letter-spacing:1pt;margin:0 0 9px 0;text-transform:uppercase;}
-h1{font-size:22pt;font-weight:normal;letter-spacing:4pt;margin:0;text-transform:uppercase;}
-	h1 a{border-bottom:0;color:#f78418;}
-		h1 a:visited{border-bottom:0;color:#f78418;}
-		h1 a:hover{border-bottom:0;color:#004276;}
-h2{border-bottom:1px solid #999;font-size:10pt;font-weight:normal;margin-bottom:7px;text-transform:lowercase;}
-h3{font-size:13pt;margin:0 0 2px 0;}
-h4{margin:0;}
-ul{margin:1px 0 3px 0;}
-
-#content{background:#fcfcfc;border:1px solid #444;box-shadow:5px 5px 15px #888;margin:12px auto;padding:.4in .7in;width:7.1in;}
-	#qualifications{margin-left:30px;}
-		.quals{margin-left:40px;}
-			.quals a{color:#000;}
-
-.coursework{border-left:2px solid #444;margin-left:27px;padding-left:10px;}
-.datum{color:#bbb;float:right;}
-.email{font-weight:bold;text-transform:none;}
-	.email:before{color:#000;content:"| ";font-weight:normal;}
-.tel:after{content:" |";}
-.title{color:#f78418;font-style:italic;font-weight:normal;}
-.vcalendar{margin-left:30px;}
-
-@media screen and (max-width:640px){
-	body{background-color:#fff;}
-	a,a:link{display:inline-block;padding:.1em .2em .1em 0;text-decoration:underline;}
-		a:visited{border-left:0 none;color:purple;}
-		a:hover,a:focus{border-bottom:0 none;color:#f78418;}
-		a:active{color:#f78418;}
-	h1{font-size:18pt;margin-top:.5em;}
-	ul{padding-left:1em;}
+	a.include{display:none;}
+header{font-size:.75em;font-style:normal;margin:0 0 1em 0;text-transform:uppercase;}
 	header .adr{display:block;}
 	header .profile{display:none;}
-	#content{background:#fff;border:0 none;box-shadow:0 0 0 #fff;margin:0;padding:0 5px;width:inherit;}
-	#qualifications,.vcalendar{margin-left:0;}
-	.coursework{border-left:0 none;margin-left:1em;padding-left:0;}
-	.datum{float:none;}
-	.education,.experience{margin-top:1em;}
-	.quals{margin-left:1em;}
-	.email:before,.tel:after{content:"";}
-	.tel{clear:both;display:block;margin-bottom:1em;}
+h1{font-size:2em;font-weight:normal;letter-spacing:.2em;margin:.5em 0 0;text-transform:uppercase;}
+	h1 a{color:#f78418;}
+	h1 a:visited{color:#f78418;}
+	h1 a:hover{color:#004276;}
+h2{border-bottom:1px solid #999;font-size:.75em;font-weight:normal;margin:1em 0;text-transform:lowercase;}
+h3{font-size:1em;margin:1em 0 0;}
+h4{margin:0;}
+section{margin:1em 0;}
+ul{margin:0;}
+
+.datum{display:block;margin:0 0 -1em;}
+.education,.experience{margin:0 0 1.5em;}
+.tel{clear:both;display:block;margin-bottom:1em;}
+
+@media print,screen and (min-width:8.5in){
+	body{background-color:#bbb;font-size:12pt;line-height:1.286;}
+	a,a:link{display:inline;padding:0;text-decoration:none;}
+		a:visited{color:#004276;}
+	h1{font-size:32pt;margin:0;}
+	header{font-size:8pt;}
+		header .profile{display:inline;}
+	ul{padding-left:1em;}
+
+	#content{background:#fff;border:1px solid #444;box-shadow:5px 5px 15px #888;margin:12px auto;padding:.4in .7in;width:7.1in;}
+		#qualifications,.vcalendar{margin-left:2em;}
+
+	.coursework{border-left:2px solid #444;padding-left:1em;}
+	.datum{color:#bbb;float:right;margin:0;}
+	.email{font-weight:bold;text-transform:none;}
+		.email:before{color:#000;content:"| ";font-weight:normal;}
+	.quals{margin:0 0 0 1em;}
+		.quals a{color:#000;}
+	.tel{clear:none;display:inline;margin:0;}
+		.tel:after{content:" |";}
+	.title{color:#f78418;font-style:italic;font-weight:normal;}
+	}
+
+@media print{
+	body{background:#fff;}
+	#content{border:0 none;box-shadow:none;margin:0;padding:0;width:inherit;}
+	.education,.experience{margin:0 0 1em;}
 	}
