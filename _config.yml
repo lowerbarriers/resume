@@ -39,11 +39,11 @@ resume:
     email: "brad@solveitonce.com"
     phone: "(248) 721-0350"
     location:
-      address": "1428 Mark Ave"
-      postalCode": "MI 48146"
-      city": "Lincoln Park"
-      countryCode": "US"
-      region": "Michigan"
+      address: "1428 Mark Ave"
+      postalCode: "MI 48146"
+      city: "Lincoln Park"
+      countryCode: "US"
+      region: "Michigan"
     profiles:
       - network: "Facebook"
         username: "bradczerniak"
