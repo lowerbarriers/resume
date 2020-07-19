@@ -67,135 +67,137 @@
   </head>
 
   <body>
-    <div id="content" class="hresume" itemscope itemtype="http://schema.org/ProfilePage">
-      <header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="address vcard">
-        <span itemprop="telephone" class="tel">{{ site.resume.basics.phone }}</span>
+    <div id="content" class="h-resume" itemscope itemtype="http://schema.org/ProfilePage">
+      <header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="p-contact address h-card">
+        <span itemprop="telephone" class="p-tel">{{ site.resume.basics.phone }}</span>
         {% for profile in site.resume.basics.profiles %}
-          <a href="{{ profile.url }}">{{ profile.network }}</a>
+          <a class="u-url" rel="me" href="{{ profile.url }}" itemprop="relatedLink">{{ profile.network }}</a>
         {% endfor %}
-        <a itemprop="email" class="email" href="mailto:{{ site.resume.basics.email }}">{{ site.resume.basics.email }}</a>
+        <a itemprop="email" class="u-email email" href="mailto:{{ site.resume.basics.email }}">{{ site.resume.basics.email }}</a>
 
         <h1>
-          <a itemprop="name url" class="fn n url" id="resname" href="{{ site.resume.basics.website }}" rel="me">
+          <a itemprop="name url" class="p-name fn n u-url" id="resname" href="{{ site.resume.basics.website }}" rel="me">
             {{ site.resume.basics.name }}
           </a>
         </h1>
       </header>
 
-      <section class="vcalendar">
-        <h2>Experience</h2>
+      <main>
+        <section class="vcalendar">
+          <h2>Experience</h2>
 
-        <ol>
-          {% assign experience = site.resume.work | reverse %}
-          {% for job in experience %}
-            <li itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
-              <h3>{{ job.position }}</h3>
+          <ol>
+            {% assign experience = site.resume.work | reverse %}
+            {% for job in experience %}
+              <li itemscope itemtype="http://schema.org/Organization" class="p-experience h-event">
+                <h3 class="p-name">{{ job.position }}</h3>
 
-              <h4>
-                <a itemprop="name" href="{{ job.website }}" class="org fn">
-                  {{ job.company }}
-                </a>
-              </h4>
+                <h4 class="h-card p-location org fn">
+                  <a itemprop="name" href="{{ job.website }}" class="p-name">
+                    {{ job.company }}
+                  </a>
+                </h4>
 
-              <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum">
-                <time itemprop="startDate" class="dtstart" datetime="{{ job.startDate }}" title="{{ job.startDate }}">
-                  {{ job.startDate | date: "%Y-%b" }}
-                </time>
-                 to
-                {% if job.endDate %}
-                  <time itemprop="endDate" class="dtend" datetime="{{ job.endDate }}" title="{{ job.endDate }}">
-                    {{ job.endDate | date: "%Y-%b" }}
+                <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum">
+                  <time itemprop="startDate" class="dt-start" datetime="{{ job.startDate }}" title="{{ job.startDate }}">
+                    {{ job.startDate | date: "%Y-%b" }}
                   </time>
-                {% else %}
-                  <span>Present</span>
-                {% endif %}
-              </span>
+                   to
+                  {% if job.endDate %}
+                    <time itemprop="endDate" class="dt-end" datetime="{{ job.endDate }}" title="{{ job.endDate }}">
+                      {{ job.endDate | date: "%Y-%b" }}
+                    </time>
+                  {% else %}
+                    <span>Present</span>
+                  {% endif %}
+                </span>
 
-              <ul itemprop="description" class="description summary">
-                {% for highlight in job.highlights %}
-                  <li>{{ highlight }}</li>
-                {% endfor %}
-              </ul>
-            </li>
-          {% endfor %}
-        </ol>
-      </section>
-
-      <section class="vcalendar">
-        <h2>Education</h2>
-
-        <ol>
-          {% assign education = site.resume.education | reverse %}
-          {% for school in education %}
-            <li itemscope itemtype="http://schema.org/CollegeOrUniversity" class="education vevent vcard">
-              <span itemscope itemtype="http://schema.org/EducationEvent" class="datum">
-                <time itemprop="startDate" class="dtstart" datetime="{{ school.startDate }}" title="{{ school.startDate }}">
-                  {{ school.startDate | date: "%Y-%b" }}
-                </time>
-                 to
-                <time itemprop="endDate" class="dtend" datetime="{{ school.endDate }}" title="{{ school.endDate }}">
-                  {{ school.endDate | date: "%Y-%b" }}
-                </time>
-              </span>
-
-              <h3 class="summary">
-                {{ school.studyType }} — {{ school.area }}
-              </h3>
-
-              <cite itemprop="name" class="org fn">{{ school.institution }}</cite>
-
-              <div itemscope itemtype="http://schema.org/ItemList" class="coursework">
-                <h4 itemprop="name">Relevant Coursework:</h4>
-
-                <ul>
-                  {% for course in school.courses %}
-                    <li>{{ course }}</li>
+                <ul itemprop="description" class="p-description summary">
+                  {% for highlight in job.highlights %}
+                    <li>{{ highlight }}</li>
                   {% endfor %}
                 </ul>
-              </div>
-            </li>
-          {% endfor %}
-        </ol>
-      </section>
+              </li>
+            {% endfor %}
+          </ol>
+        </section>
 
-      <section itemscope itemtype="http://schema.org/ItemList" id="qualifications">
-        <h2>Qualifications</h2>
+        <section class="vcalendar">
+          <h2>Education</h2>
 
-        <h3>Awards</h3>
-        <ul>
-          {% for award in site.resume.awards %}
-            <li>{{ award.title }} — {{ award.awarder }}</li>
-          {% endfor %}
-        </ul>
+          <ol>
+            {% assign education = site.resume.education | reverse %}
+            {% for school in education %}
+              <li itemscope itemtype="http://schema.org/CollegeOrUniversity" class="p-education h-event">
+                <span itemscope itemtype="http://schema.org/EducationEvent" class="datum">
+                  <time itemprop="startDate" class="dt-start" datetime="{{ school.startDate }}" title="{{ school.startDate }}">
+                    {{ school.startDate | date: "%Y-%b" }}
+                  </time>
+                   to
+                  <time itemprop="endDate" class="dt-end" datetime="{{ school.endDate }}" title="{{ school.endDate }}">
+                    {{ school.endDate | date: "%Y-%b" }}
+                  </time>
+                </span>
 
-        <h3>Publications</h3>
-        <ul>
-          {% for pub in site.resume.publications %}
-            <li>"{{ pub.name }}" — <a href="{{ pub.website }}">{{ pub.publisher }}</a></li>
-          {% endfor %}
-        </ul>
+                <h3 class="p-summary summary">
+                  {{ school.studyType }} — {{ school.area }}
+                </h3>
 
-        <h3>Skills</h3>
-        <ul class="quals">
-          {% for skill in site.resume.skills %}
-            <li class="skill" title="{{ skill.keywords | join: ", " }}">{{ skill.name }}</li>
-          {% endfor %}
-        </ul>
+                <cite itemprop="name" class="h-card p-name p-location org fn">{{ school.institution }}</cite>
 
-        <h3>Languages</h3>
-        <ul class="quals">
-          {% for language in site.resume.languages %}
-            <li>{{ language.language }} — {{ language.fluency }}</li>
-          {% endfor %}
-        </ul>
+                <div itemscope itemtype="http://schema.org/ItemList" class="coursework p-description">
+                  <h4 itemprop="name">Relevant Coursework:</h4>
 
-        <h3>Interests</h3>
-        <ul>
-          {% for interest in site.resume.interests %}
-            <li>{{ interest.name }}</li>
-          {% endfor %}
-        </ul>
-      </section>
+                  <ul>
+                    {% for course in school.courses %}
+                      <li>{{ course }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </li>
+            {% endfor %}
+          </ol>
+        </section>
+
+        <section class="p-summary" itemscope itemtype="http://schema.org/ItemList" id="qualifications">
+          <h2>Qualifications</h2>
+
+          <h3>Awards</h3>
+          <ul>
+            {% for award in site.resume.awards %}
+              <li>{{ award.title }} — <span class="p-affiliation">{{ award.awarder }}</span></li>
+            {% endfor %}
+          </ul>
+
+          <h3>Publications</h3>
+          <ul>
+            {% for pub in site.resume.publications %}
+              <li>"{{ pub.name }}" — <a class="p-affiliation" href="{{ pub.website }}">{{ pub.publisher }}</a></li>
+            {% endfor %}
+          </ul>
+
+          <h3>Skills</h3>
+          <ul class="quals">
+            {% for skill in site.resume.skills %}
+              <li class="p-skill" title="{{ skill.keywords | join: ", " }}">{{ skill.name }}</li>
+            {% endfor %}
+          </ul>
+
+          <h3>Languages</h3>
+          <ul class="quals">
+            {% for language in site.resume.languages %}
+              <li class="p-skill">{{ language.language }} — {{ language.fluency }}</li>
+            {% endfor %}
+          </ul>
+
+          <h3>Interests</h3>
+          <ul>
+            {% for interest in site.resume.interests %}
+              <li>{{ interest.name }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      </main>
     </div>
   </body>
 </html>
