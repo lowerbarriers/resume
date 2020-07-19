@@ -143,7 +143,11 @@
                   {{ school.studyType }} — {{ school.area }}
                 </h3>
 
-                <cite itemprop="name location" class="h-card p-name p-location org fn">{{ school.institution }}</cite>
+                <cite itemprop="name location" class="h-card p-name p-location org fn">
+                  <span itemprop="name address">
+                  {{ school.institution }}
+                    </span>
+                </cite>
 
                 <div itemprop="description" class="coursework p-description">
                   <h4>Relevant Coursework:</h4>
