@@ -1,0 +1,10 @@
+---
+####
+## @file
+## Print the resume data into valid JSON resume format.
+####
+layout: none
+meta:
+  description: "Resume data in valid JSON resume format."
+---
+{{ site.resume | jsonify }}

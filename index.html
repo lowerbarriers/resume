@@ -1,132 +1,179 @@
+---
+---
+
 <!DOCTYPE html>
-<html lang="en-US">
-<head profile="http://gmpg.org/xfn/11">
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<title>Brad Czerniak | Résumé</title>
-<link rel="shortcut icon" href="http://bradczerniak.com/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="styles.css" type="text/css" media="all" />
-<meta name="author" content="Brad Czerniak" />
-<meta name="Description" content="A convincing argument for hiring Brad, a Drupal web developer/designer with a librarian background." />
-<meta property="og:country-name" content="USA"/>
-<meta property="og:description" content="A convincing argument for hiring Brad, a Drupal web developer/designer with a librarian background." />
-<meta property="og:email" content="ao5357@gmail.com"/>
-<meta property="og:image" content="http://bradczerniak.com/apple-touch-icon.png" />
-<meta property="og:locality" content="Belleville"/>
-<meta property="og:phone_number" content="248-721-0350"/>
-<meta property="og:postal-code" content="48111"/>
-<meta property="og:region" content="MI"/>
-<meta property="og:site_name" content="Brad Czerniak" />
-<meta property="og:street-address" content="6751 Anna Dr"/>
-<meta property="og:title" content="Brad Czerniak's Résumé" />
-<meta property="og:type" content="profile" />
-<meta property="og:url" content="http://resume.bradczerniak.com/" />
-</head><body>
-<div id="content" class="hresume" itemscope itemtype="http://schema.org/ProfilePage">
+<html {% if site.html.dir %}dir="{{ site.html.dir }}"{% endif %}
+      {% if site.html.lang %}lang="{{ site.html.lang }}"{% endif %}
+      prefix="og: http://ogp.me/ns#"
+>
+  <head profile="http://gmpg.org/xfn/11">
+    <meta charset="{{ site.encoding }}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>{{ site.resume.basics.name }} | Résumé</title>
 
-<header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="address vcard"><section>
-  <span itemprop="telephone" class="tel">(248) 721-0350</span> <a class="url profile" itemprop="url" href="https://plus.google.com/101859597007067422923?rel=author" rel="me author">Google+</a> <a itemprop="email" class="email" href="mailto:ao5357@gmail.com" title="Also Google Talk sn">ao5357@gmail.com</a>
-  <h1><a itemprop="name url" class="fn n url" id="resname" href="http://bradczerniak.com/" rel="me" title="Homepage/Blog">Brad Czerniak</a></h1>
-  <meta itemprop="gender" content="Male" />
-  <meta itemprop="honorificSuffix" content="MLIS" />
-  <meta itemprop="gender" content="Male" />
-  <meta itemprop="jobTitle" content="Senior Drupal Developer" />
-</section></header>
+    {% comment %}<!-- Fonts and CSS --> {% endcomment %}
+    {% if site.woff %}
+      {% for woff in site.woff %}
+        <link rel="preload" href="{{ site.subpath }}/assets/fonts/{{ woff }}" as="font" type="font/woff2" crossorigin />
+      {% endfor %}
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" />
 
-<h2>Experience</h2>
-<section class="vcalendar">
-  <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
-    <a href="#resname" class="include"></a>
-    <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2013-02-04" title="2013-02-04">2013-02</time> to <span>Present</span></span>
-    <h3>Senior Drupal Developer</h3>
-    <a style="display:none;" href="http://en.wikipedia.org/wiki/Northville,_Michigan" class="location">Northville, MI</a>
-    <h4><a itemprop="name" href="http://www.commercialprogression.com/" class="org fn">Commercial Progression</a></h4>
-    <div itemprop="description" class="description summary">
-      <ul> 
-        <li>Build sites, modules, and themes for Drupal-based client sites</li>
-        <li>Optimize continuous integration and developer workflow</li>
-        <li>Incubate brand-new lean Discovery and Architecture</li>
+    {% comment %}<!-- Title and URL meta --> {% endcomment %}
+    <meta property="og:title" content="{{ site.resume.basics.name }} | Résumé" />
+    <link rel="canonical" href="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
+    <meta property="og:url" content="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
+    {% if page.previous %}<link rel="prev" href="{{ page.previous.url | relative_url }}" />{% endif %}
+    {% if page.next %}<link rel="next" href="{{ page.next.url | relative_url }}" />{% endif %}
+
+    {% comment %}<!-- Identification/Specification tags --> {% endcomment %}
+    <meta name="author" content="{{ site.resume.basics.name }}" />
+    <meta property="og:site_name" content="{{ site.resume.basics.name }} | Résumé" />
+    {% if site.twitter.creator %}<meta name="twitter:creator" content="{{ site.twitter.creator }}" />{% endif %}
+    {% if site.twitter.creator %}<meta name="twitter:site" content="{{ site.twitter.site }}" />{% endif %}
+    {% if site.open_graph.fb_app_id %}<meta property="fb:app_id" content="{{ site.open_graph.fb_app_id }}" />{% endif %}
+    {% if site.twitter.card %}<meta name="twitter:card" content="{{ site.twitter.card }}" />{% endif %}
+    {% if site.open_graph.og_type %}<meta property="og:type" content="{{ site.open_graph.og_type }}" />{% endif %}
+
+    {% comment %}<!-- Geo/contact tags --> {% endcomment %}
+    {% if site.html.locale %}<meta property="og:locale" content="{{ site.html.locale }}" />{% endif %}
+    <meta property="og:street_address" content="{{ site.resume.basics.location.address }}" />
+    <meta property="og:locality" content="{{ site.resume.basics.location.city }}" />
+    <meta property="og:region" content="{{ site.resume.basics.location.region }}" />
+    <meta property="og:postal_code" content="{{ site.resume.basics.location.postalCode }}" />
+    <meta property="og:country_name" content="{{ site.resume.basics.location.countryCode }}" />
+    <meta property="og:email" content="{{ site.resume.basics.email }}" />
+    <meta property="og:phone_number" content="{{ site.resume.basics.phone }}" />
+
+    {% comment %}<!-- Image (social share) tags --> {% endcomment %}
+    {% if site.meta.image.src %}
+      <meta property="og:image" content="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
+      <link rel="image_src" href="{{ site.url }}{{ site.subpath }}/assets/images/{{ site.meta.image.src }}" />
+      <meta name="og:image:alt" content="{{ site.meta.image.alt }}" />
+      <meta name="twitter:image:alt" content="{{ site.meta.image.alt }}" />
+    {% endif %}
+
+    {% comment %}<!-- Description/brief/abstract tags --> {% endcomment %}
+    <meta name="description" content="{{ site.resume.basics.summary }}" />
+    <meta property="og:description" content="{{ site.resume.basics.summary }}" />
+
+    {% comment %}<!-- PWA and browser-specific tweaks. -->{% endcomment %}
+    <meta name="apple-mobile-web-app-title" content="{{ site.resume.basics.name | slugify }}" />
+    <meta name="Generator" content="{{ site.meta.generator }}" />
+    <link rel="alternate" type="application/json" href="assets/data/resume.json" title="JSON resume serialization" />
+  </head>
+
+  <body>
+    <div id="content" class="hresume" itemscope itemtype="http://schema.org/ProfilePage">
+
+    <header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="address vcard"><section>
+      <span itemprop="telephone" class="tel">(248) 721-0350</span> <a class="url profile" itemprop="url" href="https://plus.google.com/101859597007067422923?rel=author" rel="me author">Google+</a> <a itemprop="email" class="email" href="mailto:ao5357@gmail.com" title="Also Google Talk sn">ao5357@gmail.com</a>
+      <h1><a itemprop="name url" class="fn n url" id="resname" href="http://bradczerniak.com/" rel="me" title="Homepage/Blog">Brad Czerniak</a></h1>
+      <meta itemprop="gender" content="Male" />
+      <meta itemprop="honorificSuffix" content="MLIS" />
+      <meta itemprop="gender" content="Male" />
+      <meta itemprop="jobTitle" content="Senior Drupal Developer" />
+    </section></header>
+
+    <h2>Experience</h2>
+    <section class="vcalendar">
+      <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
+        <a href="#resname" class="include"></a>
+        <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2013-02-04" title="2013-02-04">2013-02</time> to <span>Present</span></span>
+        <h3>Senior Drupal Developer</h3>
+        <a style="display:none;" href="http://en.wikipedia.org/wiki/Northville,_Michigan" class="location">Northville, MI</a>
+        <h4><a itemprop="name" href="http://www.commercialprogression.com/" class="org fn">Commercial Progression</a></h4>
+        <div itemprop="description" class="description summary">
+          <ul>
+            <li>Build sites, modules, and themes for Drupal-based client sites</li>
+            <li>Optimize continuous integration and developer workflow</li>
+            <li>Incubate brand-new lean Discovery and Architecture</li>
+          </ul>
+        </div>
+      </div>
+      <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
+        <a href="#resname" class="include"></a>
+        <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2008-05-08" title="2008-05-08">2008-05</time> to <time itemprop="endDate" class="dtend" datetime="2013-01-25" title="2013-01-25">2013-01</time></span>
+        <h3>Digital Resources Developer</h3>
+        <a style="display:none;" href="http://en.wikipedia.org/wiki/Canton_Township,_Michigan" class="location">Canton, MI</a>
+        <h4 class="title"><a itemprop="name" href="http://www.cantonpl.org/" class="org fn">Canton Public Library</a></h4>
+        <div itemprop="description" class="description summary">
+          <ul>
+            <li>Developed modules and themes for a <a href="http://www.cantonpl.org/">Drupal-based website</a></li>
+            <li>Designed UI and incorporated branding for site and catalog</li>
+          </ul>
+        </div>
+      </div>
+      <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
+        <a href="#resname" class="include"></a>
+        <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2007-02-14" title="2007-02-14">2007-02</time> to <time itemprop="endDate" class="dtend" datetime="2008-05-08" title="2008-05-08">2008-05</time></span>
+        <h3>Adult Services Intern</h3>
+        <a style="display:none;" href="http://en.wikipedia.org/wiki/Southfield%2C_Michigan" class="location">Southfield, MI</a>
+        <h4 class="title"><a itemprop="name" href="http://www.sfldlib.org/" class="org fn">Southfield Public Library</a></h4>
+        <div itemprop="description" class="description summary">
+          <ul>
+            <li>Provided quality reference service in a diverse, fast-paced environment</li>
+            <li>Active in strategic planning process: assessment and evaluation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <h2>Education</h2>
+    <section class="vcalendar">
+      <div itemscope itemtype="http://schema.org/CollegeOrUniversity" class="education vevent vcard">
+        <a href="#resname" class="include"></a>
+        <span itemscope itemtype="http://schema.org/EducationEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2006-09-01" title="2006-09-01">2006-09</time> to <time itemprop="endDate" class="dtend" datetime="2008-04-28" title="2008-04-28">2008-04</time></span>
+        <h3><a class="url summary" href="http://slis.wayne.edu/" title="Reference Services and Information Science Focus">Master of Library and Information Science</a></h3>
+        <a itemprop="name url" class="org fn" href="http://wayne.edu/">Wayne State University</a><span> — Detroit, MI</span>
+        <div itemscope itemtype="http://schema.org/ItemList" class="coursework">
+          <h4 itemprop="name">Elective Coursework:</h4>
+          Multiculturalism, Web Design, Digital Libraries, Scripting Languages, Competitive Intelligence and Data Mining, Advanced Reference, Advanced Searching
+        </div>
+      </div>
+
+      <div itemscope itemtype="http://schema.org/CollegeOrUniversity" class="education vevent vcard">
+        <a href="#resname" class="include"></a>
+        <span itemscope itemtype="http://schema.org/EducationEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2003-09-01" title="2003-09-01">2003-09</time> to <time itemprop="endDate" class="dtend" datetime="2006-12-21" title="2006-12-21">2006-12</time></span>
+        <h3><a class="url summary" href="http://www.clas.wayne.edu/economics/" title="Labor and regulatory focus">BA — Economics</a></h3>
+        <a itemprop="name url" class="org fn" href="http://wayne.edu/">Wayne State University</a>
+        <div itemscope itemtype="http://schema.org/ItemList" class="coursework">
+          <h4 itemprop="name">Relevant Coursework:</h4>
+          Labor Economics (&amp; History), German, Spanish, Film (&amp; History), American Culture
+        </div>
+      </div>
+    </section>
+
+    <h2>Qualifications</h2>
+    <section itemscope itemtype="http://schema.org/ItemList" id="qualifications">
+      <h3 itemprop="name">Languages</h3>
+      <div class="quals">
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/HTML5" title="Hypertext Markup Language version 5">HTML5</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">CSS</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> (and <a class="skill" rel="tag" href="http://jquery.com/">jQuery</a>),
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/PHP" title="PHP: Hypertext Preprocessor">PHP</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/MySQL">MySQL</a>
+      </div>
+
+      <h3 itemprop="name">Platforms/Methodologies</h3>
+      <div class="quals">
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://drupal.org/">Drupal</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://git-scm.com">git</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.alistapart.com/articles/responsive-web-design/">Responsive Design</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.alistapart.com/articles/understandingprogressiveenhancement/">Progressive Enhancement</a>,
+      <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.iii.com/" title="Innovative Interfaces Millennium Web Online Public Access Catalog Pro">iii WebPAC</a>
+      </div>
+
+      <h3>Accomplishments</h3><ul>
+      <li>Developed <a href="https://github.com/ao5357/hawiducss">Hawidu CSS</a>, an innovative CSS3 framework</li>
+      <li>Elected to the <a href="http://cantonhistoricalsociety.org">Canton Historical Society</a> and <a href="http://slis.wayne.edu/slisaa/board.php">WSU–SLISAA</a> boards</li>
+      <li><a href="http://www.thedigitalshift.com/2012/07/mobile/library-websites-adapt-to-smartphone-growth/">Featured in Library Journal</a> for pioneering responsive design in libraries</li>
+      <li><a href="http://bit.ly/gitdrupal">Presented</a> at the inaugural <a href="http://drupalcampmi.org/">Drupalcamp Michigan</a></li>
       </ul>
+    </section>
     </div>
-  </div>
-  <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
-    <a href="#resname" class="include"></a>
-    <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2008-05-08" title="2008-05-08">2008-05</time> to <time itemprop="endDate" class="dtend" datetime="2013-01-25" title="2013-01-25">2013-01</time></span>
-    <h3>Digital Resources Developer</h3>
-    <a style="display:none;" href="http://en.wikipedia.org/wiki/Canton_Township,_Michigan" class="location">Canton, MI</a>
-    <h4 class="title"><a itemprop="name" href="http://www.cantonpl.org/" class="org fn">Canton Public Library</a></h4>
-    <div itemprop="description" class="description summary">
-      <ul> 
-        <li>Developed modules and themes for a <a href="http://www.cantonpl.org/">Drupal-based website</a></li>
-        <li>Designed UI and incorporated branding for site and catalog</li>
-      </ul>
-    </div>
-  </div>
-  <div itemscope itemtype="http://schema.org/Library" class="experience vevent vcard">
-    <a href="#resname" class="include"></a>
-    <span itemscope itemtype="http://schema.org/BusinessEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2007-02-14" title="2007-02-14">2007-02</time> to <time itemprop="endDate" class="dtend" datetime="2008-05-08" title="2008-05-08">2008-05</time></span>
-    <h3>Adult Services Intern</h3>
-    <a style="display:none;" href="http://en.wikipedia.org/wiki/Southfield%2C_Michigan" class="location">Southfield, MI</a>
-    <h4 class="title"><a itemprop="name" href="http://www.sfldlib.org/" class="org fn">Southfield Public Library</a></h4>
-    <div itemprop="description" class="description summary">
-      <ul> 
-        <li>Provided quality reference service in a diverse, fast-paced environment</li>
-        <li>Active in strategic planning process: assessment and evaluation</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<h2>Education</h2>
-<section class="vcalendar">
-  <div itemscope itemtype="http://schema.org/CollegeOrUniversity" class="education vevent vcard">
-    <a href="#resname" class="include"></a>
-    <span itemscope itemtype="http://schema.org/EducationEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2006-09-01" title="2006-09-01">2006-09</time> to <time itemprop="endDate" class="dtend" datetime="2008-04-28" title="2008-04-28">2008-04</time></span>
-    <h3><a class="url summary" href="http://slis.wayne.edu/" title="Reference Services and Information Science Focus">Master of Library and Information Science</a></h3>
-    <a itemprop="name url" class="org fn" href="http://wayne.edu/">Wayne State University</a><span> — Detroit, MI</span>
-    <div itemscope itemtype="http://schema.org/ItemList" class="coursework">
-      <h4 itemprop="name">Elective Coursework:</h4>
-      Multiculturalism, Web Design, Digital Libraries, Scripting Languages, Competitive Intelligence and Data Mining, Advanced Reference, Advanced Searching
-    </div>
-  </div>
-
-  <div itemscope itemtype="http://schema.org/CollegeOrUniversity" class="education vevent vcard">
-    <a href="#resname" class="include"></a>
-    <span itemscope itemtype="http://schema.org/EducationEvent" class="datum"><time itemprop="startDate" class="dtstart" datetime="2003-09-01" title="2003-09-01">2003-09</time> to <time itemprop="endDate" class="dtend" datetime="2006-12-21" title="2006-12-21">2006-12</time></span>
-    <h3><a class="url summary" href="http://www.clas.wayne.edu/economics/" title="Labor and regulatory focus">BA — Economics</a></h3>
-    <a itemprop="name url" class="org fn" href="http://wayne.edu/">Wayne State University</a>
-    <div itemscope itemtype="http://schema.org/ItemList" class="coursework">
-      <h4 itemprop="name">Relevant Coursework:</h4>
-      Labor Economics (&amp; History), German, Spanish, Film (&amp; History), American Culture
-    </div>
-  </div>
-</section>
-
-<h2>Qualifications</h2>
-<section itemscope itemtype="http://schema.org/ItemList" id="qualifications">
-  <h3 itemprop="name">Languages</h3>
-  <div class="quals">
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/HTML5" title="Hypertext Markup Language version 5">HTML5</a>, 
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="Cascading Style Sheets">CSS</a>,
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> (and <a class="skill" rel="tag" href="http://jquery.com/">jQuery</a>),
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/PHP" title="PHP: Hypertext Preprocessor">PHP</a>, 
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://en.wikipedia.org/wiki/MySQL">MySQL</a>
-  </div>
-
-  <h3 itemprop="name">Platforms/Methodologies</h3>
-  <div class="quals">
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://drupal.org/">Drupal</a>,
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://git-scm.com">git</a>, 
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.alistapart.com/articles/responsive-web-design/">Responsive Design</a>,
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.alistapart.com/articles/understandingprogressiveenhancement/">Progressive Enhancement</a>,
-  <a itemprop="itemListElement" class="skill" rel="tag" href="http://www.iii.com/" title="Innovative Interfaces Millennium Web Online Public Access Catalog Pro">iii WebPAC</a>
-  </div>
-
-  <h3>Accomplishments</h3><ul>
-  <li>Developed <a href="https://github.com/ao5357/hawiducss">Hawidu CSS</a>, an innovative CSS3 framework</li>
-  <li>Elected to the <a href="http://cantonhistoricalsociety.org">Canton Historical Society</a> and <a href="http://slis.wayne.edu/slisaa/board.php">WSU–SLISAA</a> boards</li>
-  <li><a href="http://www.thedigitalshift.com/2012/07/mobile/library-websites-adapt-to-smartphone-growth/">Featured in Library Journal</a> for pioneering responsive design in libraries</li>
-  <li><a href="http://bit.ly/gitdrupal">Presented</a> at the inaugural <a href="http://drupalcampmi.org/">Drupalcamp Michigan</a></li>
-  </ul>
-</section>
-</div></body></html>
+  </body>
+</html>

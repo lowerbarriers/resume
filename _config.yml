@@ -17,81 +17,246 @@
 ####
 
 ## Technical site info
-baseurl: "" # This is better empty
-subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
+#baseurl: "" # This is better empty
+#subpath: "" # Could be a subsite of a domain at a path, ex. "/sub-site"
 google_analytics: UA-697953-3 # The UA- code provided by GA
-
-## The option below lets you choose between having Jekyll process and minify your CSS and JS (good enough), or adding a
-## step whenever you work on a CSS or JS file to run the .scripts/pre-commit.sh script before committing. This extra
-## step minimizes the size of the CSS/JS files for better front-end performance, but is obviously kind of a pain in the
-## butt.
-no_pre_commit_dependencies: "false, style and script" # Set to true to make the site work without added script hooks
-
-## Content-Security-Policy is preferably something to set in the HTTP headers, but is available here just in case.
-## @see https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-#content_security_policy: "default-src 'self'; script-src 'self' 'unsafe-inline'"
-
-## Basic site info
 title: "Brad Czerniak"
-primary_author: "Brad Czerniak"
-shortname: bpcz
-tagline: "The solve-it-once guy"
 
-## Site and contact bits
-email: ao5357@gmail.com
-#fax:
-#  display: "(248) 555-0123" # Fax number as displayed
-#  mailto: "12485550213" # Fex number with country code for the link
-locations:
-  - name: "Brad Czerniak"
-    street_address: "1428 Mark Ave"
-    locality: Lincoln Park
-    region: MI
-    postal_code: "48146"
-    country_name: USA
-phone:
-  display: "(248) 721-0350" # Phone number as displayed
-  mailto: "12487210350" # Phone number with country code for the link
-
-## Social links
-## Find icons in _includes/icons/[library]/[symbol].svg
-## The _includes/icons/simple-icons library has all the social ones.
-social:
-  - title: Facebook
-    url: https://www.facebook.com/bradczerniak
-    icon:
-      library: simple-icons
-      symbol: facebook
-  - title: Twitter
-    url: https://twitter.com/ao5357
-    icon:
-      library: simple-icons
-      symbol: twitter
-  - title: GitHub
-    url: https://github.com/ao5357
-    icon:
-      library: simple-icons
-      symbol: github
-  - title: Drupal
-    url: https://drupal.org/user/313975
-    icon:
-      library: simple-icons
-      symbol: drupal
-  - title: LinkedIn
-    url: https://www.linkedin.com/in/bczerniak
-    icon:
-      library: simple-icons
-      symbol: linkedin
-
-## Press contact
-## For small sites this is the same person and contact information as above. For companies... probably not.
-press:
-  name: "Brad Czerniak"
-  job_title: "Webmaster"
-  email: "ao5357@gmail.com"
-  phone:
-    display: "(248) 721-0350" # Phone number as displayed
-    mailto: "12487210350" # Phone number with country code for the link
+####
+## Resume
+##
+## All your resume information should be entered here rather than the HTML files or elsewhere.
+##
+## This section contains the same information as jsonresume.org schema, namespaced to site.resume and re-formatted by the
+## Jekyll system to json.
+resume:
+  basics:
+    name: "Brad Czerniak"
+    label: "The solve-it-once guy"
+    image: "https://bradczerniak.com/apple-touch-icon.png"
+    summary: "Senior Drupal and JAMstack developer, dev team leader, entrepreneur, and librarian. Looking for challenges"
+    website: "https://bradczerniak.com"
+    email: "brad@solveitonce.com"
+    phone: "(248) 721-0350"
+    location:
+      address": "1428 Mark Ave"
+      postalCode": "MI 48146"
+      city": "Lincoln Park"
+      countryCode": "US"
+      region": "Michigan"
+    profiles:
+      - network: "Facebook"
+        username: "bradczerniak"
+        url: "https://www.facebook.com/bradczerniak"
+      - network: "Twitter"
+        username: "ao5357"
+        url: "https://twitter.com/ao5357"
+      - network: "GitHub"
+        username: "ao5357"
+        url: "https://github.com/ao5357"
+      - network: "drupal.org"
+        username: "ao5357"
+        url: "https://drupal.org/user/313975"
+      - network: "LinkedIn"
+        username: "bczerniak"
+        url: "https://www.linkedin.com/in/bczerniak"
+  work:
+    - company: "Kingston Enterprises (Midas)"
+      position: "Lubrication technician"
+      website: "https://www.midas.com/detroit/store.aspx?shopnum=6754&dmanum=264"
+      startDate: "2000-05-01"
+      endDate: "2000-10-31"
+      summary: "Performed oil changes, assisted the mechanics with brakes, exhaust, and other repairs, and cleaned the shop."
+      highlights:
+        - "Reliably worked 56-hour weeks for the whole summer"
+        - "Implemented a system for tracking brake shoe reclamation"
+    - company: "Wayne State University Housing"
+      position: "Network technician and Front desk attendant"
+      website: "https://housing.wayne.edu/"
+      startDate: "2004-08-01"
+      endDate: "2005-05-31"
+      summary: "Installed wireless routers and let people into the dormitory"
+      highlights:
+        - "Presented to Housing department heads to pitch becoming first IT RA"
+    - company: "Barnes and Noble Booksellers"
+      position: "Retail associate"
+      website: "https://wayne.bncollege.com/shop/wayne/home"
+      startDate: "2006-07-01"
+      endDate: "2006-08-31"
+      summary: "Helped stock satellite location for opening and worked the register"
+      highlights:
+        - "Learned to use point-of-sale machines"
+    - company: "Southfield Public Library"
+      position: "Adult Services Intern"
+      website: "http://www.sfldlib.org/"
+      startDate: "2007-02-12"
+      endDate: "2008-05-08"
+      summary: "Trainee librarian with special projects"
+      highlights:
+        - "Provided quality reference service in a diverse, fast-paced environment"
+        - "Active in strategic planning process: assessment and evaluation"
+        - "Improved year-over-year efficiency of paper tax form program"
+    - company: "Canton Public Library"
+      position: "Digital Resources Developer"
+      website: "http://www.cantonpl.org/"
+      startDate: "2008-05-08"
+      endDate: "2013-01-25"
+      summary: "Technology librarian that did bleeding-edge stuff"
+      highlights:
+        - "Developed modules and themes for a Drupal-based website"
+        - "Designed UI and incorporated branding for site and catalog"
+        - "Launched a media and digitization lab"
+        - "Hosted hacker/maker events and online programming"
+        - "Presented at conferences about mobile devices and other technologies"
+    - company: "Commercial Progression"
+      position: "Senior Drupal Developer"
+      website: "https://www.commercialprogression.com"
+      startDate: "2013-02-04"
+      endDate: "2018-08-14"
+      summary: "Developed world-class Drupal websites for a wide variety of clients"
+      highlights:
+        - "Built sites, modules, and themes for Drupal-based client sites"
+        - "Optimized continuous integration and developer workflow"
+        - "Incubated brand-new lean Discovery and Architecture"
+    - company: "Symmetri Marketing Group"
+      position: "Director of Technology"
+      website: "https://www.symmetrimarketing.com"
+      startDate: "2018-08-14"
+      endDate: "2020-02-14"
+      summary: "Led a talented team of Drupal developers"
+      highlights:
+        - "Nurtured and supervised a team of developers"
+        - "Executed a vision for reusable, component-based Drupal archtecture"
+        - "Balanced administrative duties with development and site support"
+        - "iaison to sales, client service, and project management teams, including estimation and marketing"
+    - company: "Solve it once"
+      position: "Proprietor"
+      website: "https://solveitonce.com"
+      startDate: "2020-04-20"
+      summary: "Started the greatest tech company this world has ever seen"
+      highlights:
+        - "Impress clientele with prompt, high-quality Drupal and JAMstack work"
+        - "Provide fast, low-waste branding, UX, and other services"
+        - "Contribute open source solutions to the community"
+  volunteer:
+    - organization: "Canton Historical Society"
+      position: "Board member (secretary, treasurer)"
+      website: "http://www.cantonhistoricalsociety.org/"
+      startDate: "2011-12-01"
+      endDate: "2014-12-31"
+      summary: "Served the people of Canton in preserving and teaching the township's history"
+      highlights:
+        - "Created two iterations of the society's website"
+        - "Helped coordinate and execute the Brews, Brats, and Bands at the Barn annual fundraiser"
+        - "Kept minutes and ledgers fastidiously as secretary and treasurer"
+        - "Was a real stickler for parliamentary procedure"
+    - organization: "Lower Barriers"
+      position: "Founding member"
+      website: "https://lowerbarriers.org"
+      startDate: "2020-06-03"
+      summary: "Open source software nonprofit for improving civic engagement"
+      highlights:
+        - "Filed articles of incorporation and other paperwork"
+        - "Created code repositories that make it easier to run for office"
+  education:
+    - institution: "Troy Athens High School"
+      area: "General studies"
+      studyType: "High School Diploma"
+      startDate: "1999-09-01"
+      endDate: "2003-06-15"
+      gpa: "3.85"
+      courses:
+        - "Auto mechanics"
+        - "Computer science 1"
+        - "AP Chemistry"
+        - "AP American History"
+        - "AP World History"
+        - "AP Economics"
+        - "AP Calculus AB"
+    - institution: "Wayne State University"
+      area: "Economics"
+      studyType: "Bachelor of Arts"
+      startDate: "2003-09-01"
+      endDate: "2006-12-31"
+      gpa: "3.38"
+      courses:
+        - "Labor economics"
+        - "Labor history"
+        - "German"
+        - "Spanish"
+        - "Film history"
+        - "American culture"
+    - institution: "Wayne State University"
+      area: "Library and Information Science"
+      studyType: "Master"
+      startDate: "2006-09-01"
+      endDate: "2008-04-29"
+      gpa: "3.91"
+      courses:
+        - "Multiculturalism"
+        - "Web design"
+        - "Digital libraries"
+        - "Scripting languages"
+        - "Competitive intelligence and data mining"
+        - "Advanced reference"
+        - "Advanced searching"
+  awards:
+    - title: "Best Crew"
+      date: "2003-05-14"
+      awarder: "Athens High School Theatre Department"
+      summary: "Stage Managed 2 out of 3 productions my senior year and basically lived in the auditorium"
+  publications:
+    - name: "Library Websites Adapt to Smartphone Growth"
+      publisher: "Library Journal"
+      releaseDate: "2012-07-26"
+      website: "http://www.thedigitalshift.com/2012/07/mobile/library-websites-adapt-to-smartphone-growth/"
+      summary: "Prescient predictions of responsive design in libraries"
+  skills:
+    - name: "HTML"
+      level: "Expert"
+      keywords: ["Hypertext Markup Language", "HTML5"]
+    - name: "Drupal"
+      level: "Expert"
+      keywords: ["Drupal 8", "Drupal 9", "Views", "Paragraphs", "modules and themes"]
+    - name: "JavaScript"
+      level: "Expert"
+      keywords: ["JS", "jQuery", "nodejs", "vanilla JS", "npm", "ES6"]
+    - name: "CSS"
+      level: "Expert"
+      keywords: ["Cascading Stylesheets", "CSS3"]
+    - name: "Accessibility"
+      level: "Expert"
+      keywords: ["a11y", "WAI ARIA", "WCAG AAA", "Section 508"]
+    - name: "git"
+      level: "Expert"
+      keywords: ["GitHub", "Version control"]
+    - name: "PHP"
+      level: "Expert"
+      keywords: ["PHP Hypertext Preprocessor", "PHP 7"]
+    - name: "MySQL"
+      level: "Expert"
+      keywords: ["MariaDB", "Queries", "Relational databases", "PDO"]
+    - name: "Responsive web design"
+      level: "Expert"
+      keywords: ["RWD", "Mobile first", "Media queries", "components", "style guides"]
+    - name: "Progressive enhancement"
+      level: "Expert"
+      keywords: ["Graceful degradation", "usability"]
+  languages:
+    - language: "English"
+      fluency: "Native speaker"
+    - language: "German"
+      fluency: "Basic vocabulary"
+    - language: "Spanish"
+      fluency: "Basic vocabulary"
+    - language: "Hebrew"
+      fluency: "Alphabetical"
+  interests:
+    - name: "Jogging"
+    - name: "Ultimate Frisbee"
+#  references:
+#    - name: ""
+#      reference: ""
 
 ## The <html> tag has language and language direction. We can make it configurable
 html:
@@ -107,7 +272,6 @@ meta:
     alt: "Site default social image" # It's okay for this to be an empty string if the image is decorative
     src: required/meta-image--default.jpg
   robots: "index,follow"
-# title: "Do not use" # site.meta.title is not used for anything, but is included for completeness.
 
 ## Open Graph - the parts not inferred from other site/meta info above
 ## @see https://ogp.me/
@@ -129,27 +293,6 @@ twitter:
   creator: "@ao5357"
   site: "@ao5357"
 
-## PWA and other SEO
-## @see https://developer.mozilla.org/en-US/docs/Web/Manifest
-manifest_webmanifest:
-  background_color: "#fff"
-  theme_color: "#61009e"
-
-## JAMstack form handler globals
-## @see https://css-tricks.com/a-comparison-of-static-form-providers/
-form_components:
-  handler_url: "https://formsubmit.co"
-  honeypot_name: "_honey"
-  method: "POST"
-  thankyou_name: "_next"
-  default_submit: "Send" # or "Submit"
-
-## JAMstack product handling, courtesy of snipcart
-## Comment out the below section if you don't have products, to prevent a small script from running on every page load.
-## @see https://snipcart.com/
-snipcart:
-  api_key: "N2Q1OWZiOTMtODcyZi00OTUzLWFiYjAtNTAwMGYzZmE5YmI4NjM3MTk2NDYyNTQ4MTA5ODMx"
-
 ## Woff2 files declared as webfonts in your css, relative to /assets/fonts/
 ## Placing them here sets them to be preloaded in the head, which reduces request chaining for better performance.
 ## @see https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
@@ -157,38 +300,11 @@ woff:
   - "public_sans/public_sans_variable.woff2"
   - "public_sans/public_sans_variable_italic.woff2"
 
-## The 'THANKS' and 'SITE' sections of humans.txt
-## @see http://humanstxt.org/
-## (Note: the 'TEAM' section is built from the content in the _people collection
-humans_txt:
-  site:
-    - key: "Components"
-      value: "property--value"
-    - key: "Language"
-      value: "English"
-    - key: "Doctype"
-      value: "HTML5"
-    - key: "IDE"
-      value: "PhpStorm, Sublime Text"
-    - key: "Software"
-      value: "Jekyll"
-    - key: "Standards"
-      value: "CSS3, ES6, HTML5, WCAG 2.1"
-  thanks:
-    - name: "Brad Czerniak"
-      job_title: "finished-starter"
-      contact: "ao5357 [at] gmail.com"
-      twitter: "@ao5357"
-      from: "Lincoln Park, Michigan, USA"
-
 ## Content license (comment out to disable entirely)
 ## @see https://creativecommons.org/share-your-work/
 content_license:
   name: "CC BY-SA 4.0"
   url: "http://creativecommons.org/licenses/by-sa/4.0/"
-  icon:
-    library: simple-icons
-    symbol: creativecommons
 
 ## Jekyll configs
 ## @see https://jekyllrb.com/docs/configuration/
@@ -200,9 +316,6 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - netlify.toml
-  - node_modules
-  - package.json
-  - package-lock.json
   - readme.md
   - "vendor/bundle/"
   - "vendor/cache/"
@@ -249,79 +362,3 @@ timezone: Etc/UTC # Allows use to set dates/times without a GMT offset.
 unpublished: false
 whitelist:
   - jekyll-redirect-from
-
-## Site structure
-## @see https://jekyllrb.com/docs/collections/
-collections:
-  docs:
-    output: true
-    permalink: /docs/:path/
-  events:
-    output: true
-    permalink: /events/:year/:month/:title/
-  forms:
-    output: false
-    permalink: /:title/
-  people:
-    output: true
-    permalink: /people/:path/
-  products:
-    output: true
-    permalink: /products/:path/
-  sections:
-    output: false
-    permalink: /:title/
-
-## Layout and front matter defaults.
-## @see https://jekyllrb.com/docs/configuration/front-matter-defaults/
-defaults:
-  - scope:
-      path: ""
-      type: "docs"
-    values:
-      layout: "doc"
-      sitemap: false
-  - scope:
-      path: ""
-      type: "events"
-    values:
-      layout: "event"
-      schema:
-        type: "Event"
-  - scope:
-      path: ""
-      type: "forms"
-    values:
-      layout: "form"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
-  - scope:
-      path: ""
-      type: "people"
-    values:
-      layout: "person"
-      schema:
-        type: "Person"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      classes: ""
-      layout: "post"
-      schema:
-        type: "Article"
-  - scope:
-      path: ""
-      type: "products"
-    values:
-      layout: "product"
-      schema:
-        type: "Product"
-  - scope:
-      path: ""
-      type: "sections"
-    values:
-      layout: "section"
