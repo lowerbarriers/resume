@@ -67,13 +67,17 @@
   </head>
 
   <body>
-    <div id="content" class="h-resume" itemscope itemtype="http://schema.org/ProfilePage">
+    <div id="content" class="h-resume document" itemscope itemtype="http://schema.org/ProfilePage">
       <header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="p-contact address h-card">
-        <span itemprop="telephone" class="p-tel">{{ site.resume.basics.phone }}</span>
-        {% for profile in site.resume.basics.profiles %}
-          <a class="u-url" rel="me" href="{{ profile.url }}" itemprop="relatedLink">{{ profile.network }}</a>
-        {% endfor %}
-        <a itemprop="email" class="u-email email" href="mailto:{{ site.resume.basics.email }}">{{ site.resume.basics.email }}</a>
+        <ul class="list-style--none">
+          <li itemprop="telephone" class="p-tel">{{ site.resume.basics.phone }}</li>
+
+          {% for profile in site.resume.basics.profiles %}
+            <li><a class="u-url" rel="me" href="{{ profile.url }}" itemprop="relatedLink">{{ profile.network }}</a></li>
+          {% endfor %}
+
+          <li><a itemprop="email" class="u-email email" href="mailto:{{ site.resume.basics.email }}">{{ site.resume.basics.email }}</a></li>
+        </ul>
 
         <h1>
           <a itemprop="name url" class="p-name fn n u-url" id="resname" href="{{ site.resume.basics.website }}" rel="me">
@@ -86,7 +90,7 @@
         <section class="vcalendar">
           <h2>Experience</h2>
 
-          <ol>
+          <ol class="list-style--none">
             {% assign experience = site.resume.work | reverse %}
             {% for job in experience %}
               <li itemscope itemtype="http://schema.org/BusinessEvent" class="p-experience h-event">
@@ -125,7 +129,7 @@
         <section class="vcalendar">
           <h2>Education</h2>
 
-          <ol>
+          <ol class="list-style--none">
             {% assign education = site.resume.education | reverse %}
             {% for school in education %}
               <li itemscope itemtype="http://schema.org/EducationEvent" class="p-education h-event">
@@ -181,7 +185,7 @@
           <h3>Skills</h3>
           <ul class="quals">
             {% for skill in site.resume.skills %}
-              <liclass="p-skill" title="{{ skill.keywords | join: ", " }}">{{ skill.name }}</li>
+              <li class="p-skill" title="{{ skill.keywords | join: ", " }}">{{ skill.name }}</li>
             {% endfor %}
           </ul>
 

@@ -27,55 +27,99 @@
   src: url('../fonts/public_sans/public_sans_variable_italic.woff2') format('woff2');
 }
 
-/* hResume-based stylesheet == Created by Brad Czerniak. Released into the public domain on 1/10/2008 */
-body{background-color:#fff;font-family:'Public Sans', Arial, sans-serif;line-height:1.45;}
-a,a:link{color:#004276;display:inline-block;padding:.1em .2em .1em 0;}
-	a:visited{color:#6b1aa6;}
-	a:hover,a:focus{color:#f78418;text-decoration:underline;}
-	a:active{color:#f78418;}
-	a.include{display:none;}
-header{font-size:.75em;font-style:normal;margin:0 0 1em 0;text-transform:uppercase;}
-	header .adr{display:block;}
-	header .profile{display:none;}
-h1{font-size:2em;font-weight:normal;letter-spacing:.2em;margin:.5em 0 0;text-transform:uppercase;}
-	h1 a{color:#f78418;}
-	h1 a:visited{color:#f78418;}
-	h1 a:hover{color:#004276;}
-h2{border-bottom:1px solid #999;font-size:.75em;font-weight:normal;margin:1em 0;text-transform:lowercase;}
-h3{font-size:1em;margin:1em 0 0;}
-h4{margin:0;}
-section{margin:1em 0;}
-ul{margin:0;}
+/**
+ * The HTML wrapping tag takes some very general styles. Normalize some rendering.
+ */
+html {
+  font-size: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
 
-.datum{display:block;margin:0 0 -1em;}
-.education,.experience{margin:0 0 1.5em;}
-.tel{clear:both;display:block;margin-bottom:1em;}
+/**
+ * Tag-level styling.
+ */
+body {
+  background-color: #fff;
+  color: #222;
+  font-family: 'Public Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.45;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+    background-image: none;
+    filter: grayscale(100%) invert(100%);
+  }
+}
+@media screen and (min-width: 8.5in) {
+  body {
+    background-color: #f1f1f1;
+  }
+}
 
-@media print,screen and (min-width:8.5in){
-	body{background-color:#bbb;font-size:12pt;line-height:1.286;}
-	a,a:link{display:inline;padding:0;text-decoration:none;}
-		a:visited{color:#004276;}
-	h1{font-size:32pt;margin:0;}
-	header{font-size:8pt;}
-		header .profile{display:inline;}
-	ul{padding-left:1em;}
+h1 {
+  font-size: 2em;
+  font-weight: normal;
+  line-height: 1;
+  margin: .5em 0 0;
+}
+h1 a {
+  color: #f78418;
+}
+h1 a:visited {
+  color: #f78418;
+}
+h1 a:hover {
+  color: #004276;
+}
 
-	#content{background:#fff;border:1px solid #444;box-shadow:5px 5px 15px #888;margin:12px auto;padding:.4in .7in;width:7.1in;}
-		#qualifications,.vcalendar{margin-left:2em;}
+h2 {
+  border-bottom: 1px solid #999;
+  font-size: .75em;
+  font-weight: normal;
+  margin: 1em 0;
+  text-transform: lowercase;
+}
 
-	.coursework{border-left:2px solid #444;padding-left:1em;}
-	.datum{color:#bbb;float:right;margin:0;}
-	.email{font-weight:bold;text-transform:none;}
-		.email:before{color:#000;content:"| ";font-weight:normal;}
-	.quals{margin:0 0 0 1em;}
-		.quals a{color:#000;}
-	.tel{clear:none;display:inline;margin:0;}
-		.tel:after{content:" |";}
-	.title{color:#f78418;font-style:italic;font-weight:normal;}
-	}
+h3 {
+  font-size: 1em;
+  margin: 1em 0 0;
+}
 
-@media print{
-	body{background:#fff;}
-	#content{border:0 none;box-shadow:none;margin:0;padding:0;width:inherit;}
-	.education,.experience{margin:0 0 1em;}
-	}
+h4 {
+  margin: 0;
+}
+
+section {
+  margin: 1em 0;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+}
+
+.document {
+  padding: 20px;
+}
+@media screen and (min-width: 8.5in) {
+  .document {
+    background-color: #fff;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+    margin: 1em auto;
+    max-width: 8.5in;
+    padding: .5in 1in;
+  }
+}
+
+.list-style--none {
+  list-style: none;
+}
