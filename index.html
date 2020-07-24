@@ -16,10 +16,10 @@
     {% comment %}<!-- Fonts and CSS --> {% endcomment %}
     {% if site.woff %}
       {% for woff in site.woff %}
-        <link rel="preload" href="{{ site.subpath }}/assets/fonts/{{ woff }}" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="assets/fonts/{{ woff }}" as="font" type="font/woff2" crossorigin />
       {% endfor %}
     {% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ site.subpath }}/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
     {% comment %}<!-- Title and URL meta --> {% endcomment %}
     <meta property="og:title" content="{{ site.resume.basics.name }} | Résumé" />
