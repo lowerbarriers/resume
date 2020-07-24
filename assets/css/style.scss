@@ -71,6 +71,11 @@ body {
 a {
   transition: all 0.3s ease-in;
 }
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}
 
 h1 {
   font-size: max(2em, 10vw);
@@ -107,7 +112,7 @@ h1 a:hover {
 }
 
 h2 {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #767676;
   font-size: .75em;
   font-weight: normal;
   margin: 1em 0;
@@ -130,7 +135,7 @@ h4 {
 
 header,
 header a {
-  color: #999;
+  color: #767676;
 }
 @media (prefers-contrast: high) {
   header,
@@ -171,7 +176,7 @@ ol, ul {
 }
 
 .color--grey-light {
-  color: #999;
+  color: #767676;
 }
 @media (prefers-contrast: high) {
   .color--grey-light {
