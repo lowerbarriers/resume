@@ -47,9 +47,13 @@ body {
   color: #222;
   font-family: 'Public Sans', Arial, sans-serif;
   font-size: 1em;
+  font-weight: 300;
   line-height: 1.45;
   margin: 0;
   scroll-behavior: smooth;
+}
+@media (prefers-contrast: high) {
+  font-weight: normal;
 }
 @media screen and (prefers-color-scheme: dark) {
   body {
@@ -64,14 +68,36 @@ body {
   }
 }
 
+a {
+  transition: all 0.3s ease-in;
+}
+
 h1 {
-  font-size: 2em;
-  font-weight: normal;
+  font-size: max(2em, 10vw);
+  font-weight: 100;
   line-height: 1;
   margin: .5em 0 0;
+  text-transform: uppercase;
+}
+@media (min-width: 8.5in) {
+  h1 {
+    font-size: 4.5em;
+    margin: .15em 0 0;
+  }
+}
+@media print {
+  h1 {
+    margin: 0;
+  }
 }
 h1 a {
   color: #f78418;
+  text-decoration: #eee dashed underline;
+}
+@media print {
+  h1 a {
+    text-decoration: none;
+  }
 }
 h1 a:visited {
   color: #f78418;
@@ -92,9 +118,30 @@ h3 {
   font-size: 1em;
   margin: 1em 0 0;
 }
+aside > h3 {
+  margin-top: 0;
+}
 
 h4 {
+  font-style: italic;
+  font-weight: 200;
   margin: 0;
+}
+
+header,
+header a {
+  color: #999;
+}
+@media (prefers-contrast: high) {
+  header,
+  header a {
+    color: #000;
+  }
+}
+header a:hover,
+header a:active,
+header a:focus {
+  color: #004276;
 }
 
 section {
@@ -104,6 +151,55 @@ section {
 ol, ul {
   margin: 0;
   padding: 0;
+}
+
+/**
+ * Accessibly hide elements.
+ */
+.a11y--visually-hidden:not(:focus-within) {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal;
+}
+@media print {
+  .a11y--visually-hidden {
+    display: none;
+  }
+}
+
+.color--grey-light {
+  color: #999;
+}
+@media (prefers-contrast: high) {
+  .color--grey-light {
+    color: #000;
+  }
+}
+
+/**
+ * Add stylistic commas to lists.
+ */
+@media all and (min-width: 8.5in), print {
+  .comma-spaced {
+    list-style: none;
+  }
+  .comma-spaced > li {
+    display: inline-block;
+  }
+  .comma-spaced > li::after {
+    content: ", ";
+    display: inline-block;
+  }
+  .comma-spaced > li:last-child::after {
+    display: none;
+  }
+}
+
+.display--flex {
+  display: flex;
 }
 
 .document {
@@ -120,6 +216,60 @@ ol, ul {
   }
 }
 
+.flex--1 {
+  flex: 1;
+}
+
+.font-size--p75em {
+  font-size: 0.75em;
+}
+
+@media all and (min-width: 8.5in), print {
+  .list--inline-flex > li {
+    display: inline-flex;
+  }
+}
+
 .list-style--none {
   list-style: none;
+}
+
+.margin-top--1em {
+  margin-top: 1em;
+}
+
+/**
+ * Add stylistic pipes to lists.
+ */
+@media all and (min-width: 8.5in), print {
+  .pipe-spaced {
+    list-style: none;
+  }
+  .pipe-spaced > li::after {
+    content: "|";
+    display: inline-block;
+    font-weight: 300;
+    opacity: 0.9;
+    padding: 0 2px;
+    vertical-align: middle;
+  }
+  .pipe-spaced > li:last-child::after {
+    display: none;
+  }
+}
+
+@media print {
+  .print--hide {
+    display: none;
+  }
+}
+
+.social-link {
+  display: inline-flex;
+  margin: 2px 4px 2px 0;
+  padding: 5px 10px 5px 0;
+}
+
+.text-align--right {
+  text-align: right;
 }
