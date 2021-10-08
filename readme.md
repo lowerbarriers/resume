@@ -6,9 +6,11 @@
 
 An online résumé you can fork and host for free on GitHub quickly and without fuss.
 
-All the information is in the `_config.yml` file at the root. If you have all your employment and education info at the
-ready, you can have a **free resume online in ten minutes**. The only prerequisite is _kind of_ knowing how
-[YAML](https://en.wikipedia.org/wiki/YAML) works.
+All the information is in the `_config.yml` file at the root and `_data/resume.yml` file. If you have all your employment
+and education info at the ready, you can have a **free resume online in ten minutes**. The only prerequisite is _kind of_
+knowing how [YAML](https://en.wikipedia.org/wiki/YAML) works.
+
+![Resume data in YAML format for example](assets/images/resume-data-example.png)
 
 It renders as a nice page. The styling is set up to print a one-page version (three most recent jobs and two most recent
 degrees).

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />
-    <title>{{ site.resume.basics.name }} | Résumé</title>
+    <title>{{ site.data.resume.basics.name }} | Résumé</title>
 
     {% comment %}<!-- Fonts and CSS --> {% endcomment %}
     {% if site.woff %}
@@ -22,15 +22,15 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
     {% comment %}<!-- Title and URL meta --> {% endcomment %}
-    <meta property="og:title" content="{{ site.resume.basics.name }} | Résumé" />
+    <meta property="og:title" content="{{ site.data.resume.basics.name }} | Résumé" />
     <link rel="canonical" href="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
     <meta property="og:url" content="{{ site.url }}{{ site.subpath }}{{ page.url }}" />
     {% if page.previous %}<link rel="prev" href="{{ page.previous.url | relative_url }}" />{% endif %}
     {% if page.next %}<link rel="next" href="{{ page.next.url | relative_url }}" />{% endif %}
 
     {% comment %}<!-- Identification/Specification tags --> {% endcomment %}
-    <meta name="author" content="{{ site.resume.basics.name }}" />
-    <meta property="og:site_name" content="{{ site.resume.basics.name }} | Résumé" />
+    <meta name="author" content="{{ site.data.resume.basics.name }}" />
+    <meta property="og:site_name" content="{{ site.data.resume.basics.name }} | Résumé" />
     {% if site.twitter.creator %}<meta name="twitter:creator" content="{{ site.twitter.creator }}" />{% endif %}
     {% if site.twitter.site %}<meta name="twitter:site" content="{{ site.twitter.site }}" />{% endif %}
     {% if site.open_graph.fb_app_id %}<meta property="fb:app_id" content="{{ site.open_graph.fb_app_id }}" />{% endif %}
@@ -39,13 +39,13 @@
 
     {% comment %}<!-- Geo/contact tags --> {% endcomment %}
     {% if site.html.locale %}<meta property="og:locale" content="{{ site.html.locale }}" />{% endif %}
-    <meta property="og:street_address" content="{{ site.resume.basics.location.address }}" />
-    <meta property="og:locality" content="{{ site.resume.basics.location.city }}" />
-    <meta property="og:region" content="{{ site.resume.basics.location.region }}" />
-    <meta property="og:postal_code" content="{{ site.resume.basics.location.postalCode }}" />
-    <meta property="og:country_name" content="{{ site.resume.basics.location.countryCode }}" />
-    <meta property="og:email" content="{{ site.resume.basics.email }}" />
-    <meta property="og:phone_number" content="{{ site.resume.basics.phone }}" />
+    <meta property="og:street_address" content="{{ site.data.resume.basics.location.address }}" />
+    <meta property="og:locality" content="{{ site.data.resume.basics.location.city }}" />
+    <meta property="og:region" content="{{ site.data.resume.basics.location.region }}" />
+    <meta property="og:postal_code" content="{{ site.data.resume.basics.location.postalCode }}" />
+    <meta property="og:country_name" content="{{ site.data.resume.basics.location.countryCode }}" />
+    <meta property="og:email" content="{{ site.data.resume.basics.email }}" />
+    <meta property="og:phone_number" content="{{ site.data.resume.basics.phone }}" />
 
     {% comment %}<!-- Image (social share) tags --> {% endcomment %}
     {% if site.meta.image.src %}
@@ -56,11 +56,11 @@
     {% endif %}
 
     {% comment %}<!-- Description/brief/abstract tags --> {% endcomment %}
-    <meta name="description" content="{{ site.resume.basics.summary }}" />
-    <meta property="og:description" content="{{ site.resume.basics.summary }}" />
+    <meta name="description" content="{{ site.data.resume.basics.summary }}" />
+    <meta property="og:description" content="{{ site.data.resume.basics.summary }}" />
 
     {% comment %}<!-- PWA and browser-specific tweaks. -->{% endcomment %}
-    <meta name="apple-mobile-web-app-title" content="{{ site.resume.basics.name | slugify }}" />
+    <meta name="apple-mobile-web-app-title" content="{{ site.data.resume.basics.name | slugify }}" />
     <meta name="Generator" content="{{ site.meta.generator }}" />
     <link rel="alternate" type="application/json" href="assets/data/resume.json" title="JSON resume serialization" />
   </head>
@@ -69,16 +69,16 @@
     <div id="content" class="h-resume document" itemscope itemtype="http://schema.org/ProfilePage">
       <header itemprop="author editor" itemscope itemtype="http://schema.org/Person" class="p-contact address h-card">
         <ul class="list--inline-flex list-style--none pipe-spaced">
-          <li itemprop="telephone" class="p-tel">{{ site.resume.basics.phone }}</li>
+          <li itemprop="telephone" class="p-tel">{{ site.data.resume.basics.phone }}</li>
           <li>
-            <a itemprop="email" class="u-email email" href="mailto:{{ site.resume.basics.email }}">
-              {{ site.resume.basics.email }}
+            <a itemprop="email" class="u-email email" href="mailto:{{ site.data.resume.basics.email }}">
+              {{ site.data.resume.basics.email }}
             </a>
           </li>
         </ul>
 
         <ul class="list--inline-flex list-style--none font-size--p75em print--hide">
-          {% for profile in site.resume.basics.profiles %}
+          {% for profile in site.data.resume.basics.profiles %}
             <li>
               <a class="u-url social-link" rel="me" href="{{ profile.url }}" itemprop="relatedLink">
                 {{ profile.network }}
@@ -88,8 +88,8 @@
         </ul>
 
         <h1>
-          <a itemprop="name url" class="p-name fn n u-url" id="resname" href="{{ site.resume.basics.website }}" rel="me">
-            {{ site.resume.basics.name }}
+          <a itemprop="name url" class="p-name fn n u-url" id="resname" href="{{ site.data.resume.basics.website }}" rel="me">
+            {{ site.data.resume.basics.name }}
           </a>
         </h1>
       </header>
@@ -99,7 +99,7 @@
           <h2>Experience</h2>
 
           <ol class="list-style--none">
-            {% assign experience = site.resume.work | reverse %}
+            {% assign experience = site.data.resume.work | reverse %}
             {% for job in experience %}
               <li itemscope itemtype="http://schema.org/BusinessEvent" class="p-experience h-event {% if forloop.index >= 4 %}print--hide{% endif %}">
                 <div class="display--flex margin-top--1em">
@@ -148,7 +148,7 @@
           <h2>Education</h2>
 
           <ol class="list-style--none">
-            {% assign education = site.resume.education | reverse %}
+            {% assign education = site.data.resume.education | reverse %}
             {% for school in education %}
               <li itemscope itemtype="http://schema.org/EducationEvent" class="p-education h-event {% if forloop.index >= 3 %}print--hide{% endif %}">
                 <div class="display--flex margin-top--1em">
@@ -200,7 +200,7 @@
             <h3>Awards</h3>
 
             <ul>
-              {% for award in site.resume.awards %}
+              {% for award in site.data.resume.awards %}
                 <li>{{ award.title }} — <span class="p-affiliation">{{ award.awarder }}</span></li>
               {% endfor %}
             </ul>
@@ -210,7 +210,7 @@
             <h3>Publications</h3>
 
             <ul>
-              {% for pub in site.resume.publications %}
+              {% for pub in site.data.resume.publications %}
                 <li>"{{ pub.name }}" — <a class="p-affiliation" href="{{ pub.website }}">{{ pub.publisher }}</a></li>
               {% endfor %}
             </ul>
@@ -220,7 +220,7 @@
             <h3>Skills</h3>
 
             <ul class="quals comma-spaced">
-              {% for skill in site.resume.skills %}
+              {% for skill in site.data.resume.skills %}
                 <li class="p-skill" title="{{ skill.keywords | join: ", " }}">{{ skill.name }}</li>
               {% endfor %}
             </ul>
@@ -230,7 +230,7 @@
             <h3>Languages</h3>
 
             <ul class="quals">
-              {% for language in site.resume.languages %}
+              {% for language in site.data.resume.languages %}
                 <li class="p-skill">{{ language.language }} — {{ language.fluency }}</li>
               {% endfor %}
             </ul>
@@ -240,7 +240,7 @@
             <h3>Interests</h3>
 
             <ul class="comma-spaced">
-              {% for interest in site.resume.interests %}
+              {% for interest in site.data.resume.interests %}
                 <li>{{ interest.name }}</li>
               {% endfor %}
             </ul>
